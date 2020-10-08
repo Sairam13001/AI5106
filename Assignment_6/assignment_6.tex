@@ -212,7 +212,7 @@ Comparing \eqref{given_curve_eq} with \eqref{gen_quad_eqn}, we get
 \end{align}
 If $\abs{\vec{V}} > 0$, then \eqref{conic_quad_eqn} is an ellipse. 
 \begin{align}
-\abs{V} = \mydet{14 & -2 \\ -2 & 11} = 150 > 0 \label{ellipse_proved_eq}
+\abs{V} = \mydet{14 & -2 \\ -2 & 11} = 150 > 0
 \end{align}
 \eqref{conic_quad_eqn} can be expressed as
 \begin{align}
@@ -228,7 +228,7 @@ with center as
 \end{align}
 Calculating the center for given curve we get,
 \begin{align}
-    \vec{c} &= - \frac{1}{\abs{14\times11 - \brak{-2\times-2}}}\myvec{11  & 2 \\ 2 & 14}\myvec{-22 \\ -29} \\
+    \vec{c} &= - \frac{1}{\abs{14*11 - \brak{-2*-2}}}\myvec{11  & 2 \\ 2 & 14}\myvec{-22 \\ -29} \\
     &= \frac{1}{150}\myvec{300 \\ 450} \\
     &= \myvec{2 \\ 3}
 \end{align}
@@ -258,38 +258,7 @@ The eigenvalues are the roots of \eqref{ellipse_char_eq} given by
 \lambda_1 = 15, \lambda_2 = 10
 \label{ellipse_eval_eq}
 \end{align}
-The eigenvector $\vec{p}$ is defined as
-\begin{align}
-\vec{V} \vec{p}&= \lambda \vec{p}
-\\
-\implies \brak{\lambda\vec{I}-\vec{V}}\vec{p} &=0
-\end{align}
-where $\lambda$ is the eigenvalue.  For $\lambda_1 = 15$,
-\begin{align}
-\brak{\lambda_1\vec{I}-\vec{V}}
-= \myvec{1 & 2 \\ 2 & 4} 
-\xleftrightarrow{R_2\leftarrow R_2-2R_1}\myvec{1 & 2 \\0 & 0 }  
-\\
-\implies \vec{p}_1 = \frac{1}{\sqrt{5}}\myvec{2 \\ -1}
-\end{align}
-such that $\norm{\vec{p}_1} = 1$.  Similarly, the eigenvector corresponding to $\lambda_2$ can be obtained as
-\begin{align}
- \vec{p}_2 = \frac{1}{\sqrt{5}}\myvec{1 \\ -2}
-\end{align}
-It is easy to verify that 
-\begin{align}
-\vec{V} &= \vec{P}\vec{D}\vec{P}^{-1}=\vec{P}\vec{D}\vec{P}^T \quad \because \vec{P}^{-1} = \vec{P}^{T} \label{ellipse_spectrum_eq}
-\\
-\text{or, } \vec{D} &= \vec{P}^T\vec{V}\vec{P}
-\end{align}
-where 
-\begin{align}
-\vec{P} & =\myvec{\vec{p}_1 & \vec{p}_2} = \frac{1}{\sqrt{5}}\myvec{2 & -1\\ 1 & -2} \label{ellipse_spectrum_P_eq}
-\\
- \vec{D} &= \myvec{\lambda_1 & 0 \\ 0 & \lambda_2} =\myvec{15 & 0\\ 0 & 10}
-\label{eq:ellipse_spectrum_D}
-\end{align}
-Calculating the ellipse parameters using \eqref{axes_eq}, we get
+Calculating the major and minor axes lengths using \eqref{axes_eq}, we get
 \begin{align}
 \vec{u}^T\vec{V}^{-1}\vec{u} &= \nonumber \\
 &= \myvec{-22 -29}\frac{1}{150}\myvec{11 & 2 \\ 2 &1 4 }\myvec{-22 \\ -29} \nonumber \\
@@ -300,12 +269,10 @@ Calculating the ellipse parameters using \eqref{axes_eq}, we get
 \sqrt{\frac{\vec{u}^T\vec{V}^{-1}\vec{u} -f}{\lambda_2}} &= \sqrt{\frac{60}{10}} = \sqrt{6}
 \end{align}
 
-Thus, the given curve is found to be an ellipse from \eqref{ellipse_proved_eq} with center at $\myvec{2 & 3}$ and the major and minor axes lengths are calculated as $\sqrt{6}$, $2$. An ellipse with these parameters along with one having center as origin are plotted as shown.
-
-\begin{figure}[hb!]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=\columnwidth]{assignment_6_fig.png}
-\caption{Ellipse with center (2 3) and having the axes lengths as $\sqrt{6}$ and 2 along with an ellipse with center as origin}
-\label{Fig:Ellipse}
+\caption{Ellipse with center (2 3) and having the axes lengths as $\sqrt{6}$ and 2.}
+\label{Fig:Circle}
 \end{figure}
 \end{document}
