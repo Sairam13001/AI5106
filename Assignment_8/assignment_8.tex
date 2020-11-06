@@ -165,7 +165,7 @@ columns=fullflexible
 \renewcommand{\thefigure}{\theenumi}
 \renewcommand{\thetable}{\theenumi}
 \begin{abstract}
-This document uses the concepts of vector lines and planes in solving a problem.
+This document uses the concepts of singular value decomposition in solving a problem.
 \end{abstract}
 Download Python code from 
 %
@@ -206,40 +206,85 @@ The equation of a line passing through the point $a$ and having direction vector
 \begin{align}
     \vec{x} = \vec{a} +\lambda \vec{b} \label{vec_line_eq}
 \end{align}
-
 \section{Solution}
+Rewriting given equation of plane in \eqref{plane_vec_eqn} form, we get
+\begin{align}\label{eq2}
+	\myvec{2 & -1 & 2}\myvec{x\\y\\z} = 5
+\end{align}
+where :
+$\vec{n}=\myvec{2\\ -1 \\2}$, $\vec{x} = \myvec{x\\y\\z}$  and $c=5$\\
+We need to represent equation of plane in parametric form,
+\begin{equation}\label{eq3}
+	\vec{x} = \vec{p} + \lambda_1\vec{q} + \lambda_2\vec{r}
+\end{equation}
+Here $\vec{p}$ is any point on plane and $\vec{q}, \vec{r}$ are two vectors parallel to plane and hence $\perp$ to $\vec{n}$. Find two vectors that are $\perp$ to $\vec{n}$
+\begin{align}\label{eq4}
+	\implies\myvec{2 & -1 & 2}\myvec{a\\b\\c} = 0
+\end{align}
+Put $a=1$ and $b=2$ in \eqref{eq4}, $\implies c=0$\\
+Put $a=0$ and $b=2$ in \eqref{eq4}, $\implies c=1$\\
+Hence $\vec{q} = \myvec{1\\2\\0}, \vec{r} = \myvec{0\\2\\1}$\\
+Let us find point $\vec{p}$ on the plane. Put $x=1,y=-1$ in \eqref{eq2}, we get $\vec{p} = \myvec{1\\-1\\1}$\\
+Since given plane is perpendicular to given line, if we take $\vec{P} = \myvec{3 \\ 4 \\ -1}$ it will give us the shortest distance to the plane. \\
+Let $\vec{Q}$ be the point on plane with shortest distance to $\vec{P}$. $\vec{Q}$ can be expressed in \eqref{eq3} form as
+\begin{align}\label{eq6}
+	\vec{Q} = \myvec{1\\-1\\1} + \lambda_1\myvec{1\\2\\0} + \lambda_2\myvec{0\\2\\1}
+\end{align}
+Equate $\vec{P}$ and $\vec{Q}$, and compute $\lambda_1, \lambda_2$ using $\textit{pseudoinverse}$ from $\textit{SVD}$
+\begin{align}
+	\label{eq7}\myvec{1\\-1\\1} + \lambda_1\myvec{1\\2\\0} + \lambda_2\myvec{0\\2\\ 1} &= \myvec{3\\4\\-1}\\
+	\label{eq8}\lambda_1\myvec{1\\2\\0} + \lambda_2\myvec{0\\2\\ 1} &= \myvec{2\\5\\-2}\\
+	\label{eq9}\myvec{1 & 0\\2 & 2\\0 & 1} \myvec{\lambda_1 \\ \lambda_2} &=\myvec{2\\5\\-2}\\
+	\label{eq10}\vec{M}\vec{x} &= \vec{b}\\
+	\label{eq11}\implies\vec{x} &= \vec{M}^{+}\vec{b}
+\end{align}
+where $\vec{M} = \myvec{1 & 0\\2 & 2\\0 & 1}$, $\vec{x}= \myvec{\lambda_1 \\ \lambda_2}$ and $\vec{b}=\myvec{2\\5\\-2}$
+Diagonalize $\vec{M}\vec{M}^T$
+\begin{align}
+	\label{eq12}\vec{M}\vec{M}^T &= \myvec{1 & 0\\2 & 2\\0 & 1} \myvec{1 & 2 & 0\\0 & 2 & 1} = \myvec{1 & 2 & 0\\2 & 8 & 2\\ 0 & 2 & 1} 
+\end{align}
+We get three eigen values as 9, 1 and 0. Normalizing the eigen vectors, $\vec{U}$ is calculated as : 
+\begin{align}
+	\vec{U} &= \myvec{\frac{1}{3\sqrt{2}} & \frac{-1}{\sqrt{2}} & \frac{2}{3} \\ \frac{4}{3\sqrt{2}} & 0 & \frac{-1}{3} \\ \frac{1}{3\sqrt{2}} & \frac{1}{\sqrt{2}} & \frac{2}{3}}  
+\end{align}
+Diagonalize $\vec{M}^T\vec{M}$
+\begin{align}
+	\label{e14}\vec{M}^T\vec{M} &= \myvec{1 & 2 & 0\\0 & 2 & 1}\myvec{1 & 0\\2 & 2\\0 & 1} = \myvec{5 & 4\\4 & 5}
+\end{align}
+We get two eigen values as 9, 1. Normalizing the eigen vectors, $\vec{V}$ is calculated as : 
+\begin{align}
+	\vec{V} &= \myvec{\frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}} \\
+	\frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}}}  
+\end{align}
+Taking square root of eigen values, We get $\vec{\Sigma}$ as :
+\begin{align}
+	\vec{\Sigma} &= \myvec{3 & 0\\0 & 1\\0 & 0}
+\end{align}
+Thus, we performed Singular Value Decomposition for $\vec{M}$. It is easy to check that $\vec{U}\vec{\Sigma}\vec{V}^T = \vec{M}$. \\
+For calculating the psuedoinverse, we know 
+\begin{align}
+\vec{M}^{+} &= \vec{V}\vec{\Sigma}^{-1}\vec{U}^T \\
+&= \myvec{\frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}} \\
+	\frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}}} \myvec{\frac{1}{3} & 0 & 0 \\ 0 & 1 & 0} \myvec{\frac{1}{3\sqrt{2}} & \frac{4}{3\sqrt{2}} & \frac{1}{3\sqrt{2}} \\ \frac{-1}{\sqrt{2}} & 0 &  \frac{1}{\sqrt{2}} \\  \frac{2}{3} & \frac{-1}{3} & \frac{2}{3}}\\
+&= \label{eq20}\myvec{\frac{5}{9} & \frac{2}{9} & \frac{-4}{9} \\ \frac{-4}{9} & \frac{2}{9} & \frac{5}{9}}
+\end{align}
 
-
-Comparing \eqref{given_plane_eq} with \eqref{gen_plane_eqn}, we get
-\begin{align}
-\vec{n} &= \myvec{2  \\ -1 \\ 2}
+Substitute \eqref{eq20} in \eqref{eq11},
+\begin{align}\label{23}
+	\vec{x} =\myvec{\frac{5}{9} & \frac{2}{9} & \frac{-4}{9} \\ \frac{-4}{9} & \frac{2}{9} & \frac{5}{9}}\myvec{2\\5\\-2} = \myvec{\frac{28}{9}\\\frac{-8}{9}} = \myvec{\lambda_1 \\ \lambda_2}
 \end{align}
-The required line is perpendicular to \eqref{given_plane_eq}. So, its direction vector is parallel to the normal vector of \eqref{given_plane_eq}. Thus, from \eqref{vec_line_eq} :
+Substituting $\lambda_1$, $\lambda_2$ in \eqref{eq6}
+\begin{equation}
+	\vec{Q} = \frac{1}{9}\myvec{37\\31\\1}
+\end{equation}
+Hence the equation of required line using \eqref{vec_line_eq} is:
 \begin{align}
-    a = \myvec{3 \\ 4 \\ -1} \text{ , } b = \myvec{2  \\ -1 \\ 2}
+     \vec{x} = \myvec{3\\4\\-1} +\lambda\myvec{2\\-1\\2} 
 \end{align}
-So, the equation of required line is 
-\begin{align}
-\label{req_line_eq} 
-    \vec{x} = \myvec{3 \\ 4 \\ -1} +\lambda \myvec{2  \\ -1 \\ 2} 
-\end{align}
-\begin{figure}[h]\vspace{-0.5cm}
-\centering
-\includegraphics[width=\columnwidth]{assignment_8.png}
-\caption{Line passing through $\myvec{3 & 4 & -1}$ and perpendicular to the plane $2x - y + 2z -5 = 0$.}
-\label{Fig:line_plane}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = \columnwidth]{assignment_8.png}
+    \caption{Line passing through $\myvec{3 & 4 & -1}$ and perpendicular to the plane $2x - y + 2z = 5$.}
+    \label{line and plane}
 \end{figure}
-
-Substituting \eqref{req_line_eq} in \eqref{vec_line_eq}, we get
-\begin{align}
-    \myvec{2 & -1 & 2}\brak{\myvec{3 \\ 4 \\ -1} +\lambda \myvec{2  \\ -1 \\ 2} } = 5  \\
-    \implies 6 + 4\lambda - 4 + \lambda - 2 + 4\lambda = 5  \nonumber \\
-    \implies \lambda = \frac{5}{9} \label{lambda_value}
-\end{align}
-substituting \eqref{lambda_value} in \eqref{req_line_eq}, we get:
-\begin{align}
-    \vec{x} = \frac{1}{9}\myvec{37 \\ 31 \\ 1}
-\end{align}
-
-
 \end{document}
