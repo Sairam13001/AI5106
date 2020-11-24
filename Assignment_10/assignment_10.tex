@@ -1,0 +1,236 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+%
+\usepackage{setspace}
+\usepackage{gensymb}
+%\doublespacing
+\singlespacing
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+\usepackage[cmex10]{amsmath}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+%\usepackage{iithtlc}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+%\usepackage{stmaryrd}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+%\usepackage{enumerate}
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+%\lstset{
+%language=tex,
+%frame=single, 
+%breaklines=true
+%}
+
+\begin{document}
+%
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+%\newtheorem{thm}{Theorem}[section] 
+%\newtheorem{defn}[thm]{Definition}
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\ensuremath{\left\lVert#1\right\rVert}}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{\ensuremath{E\left[ #1 \right]}}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+%\numberwithin{equation}{section}
+\numberwithin{equation}{subsection}
+%\numberwithin{problem}{section}
+%\numberwithin{definition}{section}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+\renewcommand{\thefigure}{\theproblem}
+%\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
+%\counterwithin{equation}{enumi}
+%\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 10}
+\author{Sairam V C Rebbapragada}
+\maketitle
+\newpage
+%\tableofcontents
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\begin{abstract}
+This document uses the concepts of representation of transformations by matrices in solving a problem.
+\end{abstract}
+Download Python code from 
+%
+\begin{lstlisting}
+https://github.com/Sairam13001/AI5106/blob/main/Assignment_9/assignment_10.py
+\end{lstlisting}
+%
+Download latex-tikz codes from 
+%
+\begin{lstlisting}
+https://github.com/Sairam13001/AI5106/blob/main/Assignment_9/assignment_10.tex
+\end{lstlisting}
+%
+
+\section{Problem}
+
+Let $\mathbf{T}$ be the linear operator on $\mathbb{R}^2$ defined by
+\begin{align}
+    T\brak{x_1, x_2} = \brak{-x_2, x_1} \label{given_lin_op}
+\end{align}
+Prove that if $\vec{\beta}$ is any ordered basis for $\mathbb{R}^2$ and $[\vec{T}]_\beta = \vec{A}$ then $\vec{A}_{12}\vec{A}_{21} \neq 0$.  
+
+\section{Explanation}
+If the matrix $\myvec{a & b \\ c & d}$ is invertible, then $ad-bc \neq 0$. 
+\section{Solution}
+Let $\{\alpha_1,\alpha_2\}$ be any basis. Write $\alpha_1=\brak{a,b}$ and $\alpha_2=\brak{c,d}$. Then 
+\begin{align}
+    T\alpha_1=\brak{-b,a}, T\alpha_2=\brak{-d,c}
+\end{align}
+We need to write $T\alpha_1$ and $T\alpha_2$ in terms of $\alpha_1$, $\alpha_2$. We can do this by row reducing the augmented matrix.
+\begin{align}
+    \myvec{a & c & -b & -d \\ b & d & a & c}
+\end{align}
+Since $\{\alpha_1,\alpha_2\}$ is a basis, the matrix $\myvec{a & b \\ c & d}$ is invertible. Thus, $ad-bc \neq 0$. Which means that both a and b cannot be zero at the same time. So, the matrix row-reduces to 
+
+\begin{align}
+    \myvec{1 & 0 & \frac{ac+bd}{ad-bc} & \frac{c^2+d^2}{ad-bc} \\ 0 & 1 & \frac{a^2+b^2}{ad-bc} & \frac{ac+bd}{ad-bc}}
+\end{align}
+\begin{enumerate}
+    \item Assuming $a \neq 0$, we can show this as follows
+    \begin{align}
+        &\myvec{a & c & -b & -d \\ b & d & a & c}  \nonumber \\
+        &\xleftrightarrow{R_1 = R_1/a} \myvec{1 & \frac{c}{a} & -\frac{b}{a} & -\frac{d}{a} \\ b & d & a & c} \nonumber \\
+&\xleftrightarrow{R_2 = R_2 - R_1\times b} \myvec{1 & \frac{c}{a} & -\frac{b}{a} & -\frac{d}{a} \\ 0 & \frac{ad-bc}{a} & \frac{a^2+b^2}{a} & \frac{ac+bd}{a}} \nonumber \\
+&\xleftrightarrow{R_2 = R_2\frac{a}{ad-bc}} \myvec{1 & \frac{c}{a} & -\frac{b}{a} & -\frac{d}{a} \\ 0 & 1 & \frac{a^2+b^2}{ad-bc} & \frac{ac+bd}{ad-bc}} \nonumber \\
+&\xleftrightarrow{R_1 = R_1 - R_2\times\frac{c}{a}} \myvec{1 & 0 & -\frac{ac+bd}{ad-bc} & -\frac{c^2+d^2}{ad-bc} \\ 0 & 1 & \frac{a^2+b^2}{ad-bc} & \frac{ac+bd}{ad-bc}} \nonumber
+    \end{align}
+\item Assuming $b \neq 0$, We arrive at the same result as follows
+\begin{align}
+    &\myvec{a & c & -b & -d \\ b & d & a & c} \nonumber \\ 
+    &\xleftrightarrow{R_1\leftrightarrow R_2} \myvec{ b & d & a & c \\ a & c & -b & -d } \nonumber \\
+&\xleftrightarrow{R_1 = R_1/b}   \myvec{ 1 & \frac{d}{b} & \frac{a}{b} & \frac{c}{b} \\ a & c & -b & -d } \nonumber \\
+&\xleftrightarrow{R_2 = R_2 - R_1\times a} \myvec{ 1 & \frac{d}{b} & \frac{a}{b} & \frac{c}{b} \\ 0 & \frac{bc-ad}{b} & -\frac{a^2+b^2}{b} & -\frac{ac+bd}{b}} \nonumber \\
+&\xleftrightarrow{R_2 = R_2\frac{b}{bc-ad}} \myvec{ 1 & \frac{d}{b} & \frac{a}{b} & \frac{c}{b} \\ 0 & 1 & \frac{a^2+b^2}{ad-bc} & \frac{ac+bd}{ad-bc}} \nonumber \\
+&\xleftrightarrow{R_1 = R_1 - R_2\times\frac{d}{b}} \myvec{1 & 0 & -\frac{ac+bd}{ad-bc} & -\frac{c^2+d^2}{ad-bc} \\ 0 & 1 & \frac{a^2+b^2}{ad-bc} & \frac{ac+bd}{ad-bc}} \nonumber
+\end{align}
+\end{enumerate}
+Thus, from above two cases:
+\begin{align}
+    [\vec{T}]_\beta = \vec{A} = \myvec{-\frac{ac+bd}{ad-bc} & -\frac{c^2+d^2}{ad-bc} \\ \frac{a^2+b^2}{ad-bc} & \frac{ac+bd}{ad-bc}}.
+\end{align}
+Now $ad-bc \neq 0$ implies that atleast one of a or b is non-zero and atleast one of c or d is non-zero, which follows that:
+\begin{align}
+    a^2 + b^2 > 0 \text{ and } c^2 + d^2 > 0 \\
+    \text{Thus, } \brak{a^2+b^2}\brak{c^2+d^2} \neq 0.
+\end{align}
+Hence, it is proved that $\vec{A}_{12}\vec{A}_{21} \neq 0$.
+\end{document}
