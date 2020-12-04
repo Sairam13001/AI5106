@@ -181,39 +181,31 @@ https://github.com/Sairam13001/AI5106/blob/main/Assignment_9/assignment_10.tex
 %
 
 \section{Problem}
-
 Let $\mathbf{T}$ be the linear operator on $\mathbb{R}^2$ defined by
 \begin{align}
     T\brak{x_1, x_2} = \brak{-x_2, x_1} \label{given_lin_op}
 \end{align}
 Prove that if $\vec{\beta}$ is any ordered basis for $\mathbb{R}^2$ and $[\vec{T}]_\beta = \vec{A}$ then $\vec{A}_{12}\vec{A}_{21} \neq 0$.  
-
 \section{Explanation}
-If the matrix $\myvec{a & b \\ c & d}$ is invertible, then $ad-bc \neq 0$. 
+If the matrix $\myvec{a & b \\ c & d}$ is invertible, then $ad-bc \neq 0$. It implies that both a and b cannot become 0 at the same time.
 \section{Solution}
 \begin{align}
-    \vec{x} &= \myvec{x_1 \\ x_2} \\
-    \mathbf{T}\brak{\vec{x}} &= \mathbf{T}\vec{x}\\
-    \myvec{0 & -1 \\ 1 & 0}\myvec{x_1 \\ x_2} &= \myvec{- x_2 \\ x_1}
+    \text{Let } \vec{x} &= \myvec{x_1 \\ x_2} \\
+    T(\vec{x}) &= A\vec{x}\\
+     &= \myvec{0 & -1 \\ 1 & 0}\myvec{x_1 \\ x_2}\\
+     \implies \vec{A} &= \myvec{0 & -1 \\ 1 & 0}
 \end{align}
-The matrix of $\mathbf{T}$ in the standard ordered basis is
+Let $\{\alpha_1,\alpha_2\}$ be any basis and $\alpha_1=\brak{a,b}$ and $\alpha_2=\brak{c,d}$. Then 
 \begin{align}
-    \mathbf{T}  = \myvec{0 & -1 \\ 1 & 0}
+    T(\beta) &= \vec{A}\beta\\ 
+    T(\beta) &= \myvec{-b & -d \\ a & c} 
 \end{align}
-Let $\{\alpha_1,\alpha_2\}$ be any basis. Write $\alpha_1=\brak{a,b}$ and $\alpha_2=\brak{c,d}$. Then 
-\begin{align}
-    T\alpha_1=\brak{-b,a}, T\alpha_2=\brak{-d,c}
-\end{align}
-We need to write $T\alpha_1$ and $T\alpha_2$ in terms of $\alpha_1$, $\alpha_2$. We can do this by row reducing the augmented matrix.
+Now, for finding the matrix of $\mathbf{T}$ in the ordered basis $\beta$, We use the concept of row reducing the augmented matrix.
 \begin{align}
     \myvec{a & c & -b & -d \\ b & d & a & c}
 \end{align}
-Since $\{\alpha_1,\alpha_2\}$ is a basis, the matrix $\myvec{a & b \\ c & d}$ is invertible. Thus, $ad-bc \neq 0$. Which means that both a and b cannot be zero at the same time. So, the matrix row-reduces to 
-\begin{align}
-    \myvec{1 & 0 & \frac{ac+bd}{ad-bc} & \frac{c^2+d^2}{ad-bc} \\ 0 & 1 & \frac{a^2+b^2}{ad-bc} & \frac{ac+bd}{ad-bc}}
-\end{align}
 \begin{enumerate}
-    \item Assuming $a \neq 0$, we can show this as follows
+    \item Assuming $a \neq 0$, 
     \begin{align}
         &\myvec{a & c & -b & -d \\ b & d & a & c}  \nonumber \\
         &\xleftrightarrow{R_1 = R_1/a} \myvec{1 & \frac{c}{a} & -\frac{b}{a} & -\frac{d}{a} \\ b & d & a & c} \nonumber \\
