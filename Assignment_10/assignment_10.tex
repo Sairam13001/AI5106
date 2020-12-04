@@ -191,6 +191,15 @@ Prove that if $\vec{\beta}$ is any ordered basis for $\mathbb{R}^2$ and $[\vec{T
 \section{Explanation}
 If the matrix $\myvec{a & b \\ c & d}$ is invertible, then $ad-bc \neq 0$. 
 \section{Solution}
+\begin{align}
+    \vec{x} &= \myvec{x_1 \\ x_2} \\
+    \mathbf{T}\brak{\vec{x}} &= \mathbf{T}\vec{x}\\
+    \myvec{0 & -1 \\ 1 & 0}\myvec{x_1 \\ x_2} &= \myvec{- x_2 \\ x_1}
+\end{align}
+The matrix of $\mathbf{T}$ in the standard ordered basis is
+\begin{align}
+    \mathbf{T}  = \myvec{0 & -1 \\ 1 & 0}
+\end{align}
 Let $\{\alpha_1,\alpha_2\}$ be any basis. Write $\alpha_1=\brak{a,b}$ and $\alpha_2=\brak{c,d}$. Then 
 \begin{align}
     T\alpha_1=\brak{-b,a}, T\alpha_2=\brak{-d,c}
@@ -200,7 +209,6 @@ We need to write $T\alpha_1$ and $T\alpha_2$ in terms of $\alpha_1$, $\alpha_2$.
     \myvec{a & c & -b & -d \\ b & d & a & c}
 \end{align}
 Since $\{\alpha_1,\alpha_2\}$ is a basis, the matrix $\myvec{a & b \\ c & d}$ is invertible. Thus, $ad-bc \neq 0$. Which means that both a and b cannot be zero at the same time. So, the matrix row-reduces to 
-
 \begin{align}
     \myvec{1 & 0 & \frac{ac+bd}{ad-bc} & \frac{c^2+d^2}{ad-bc} \\ 0 & 1 & \frac{a^2+b^2}{ad-bc} & \frac{ac+bd}{ad-bc}}
 \end{align}
