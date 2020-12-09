@@ -216,15 +216,26 @@ It can be observed that $P_A(x) - P_{A^{-1}}(x)$ will be constant when
     \implies \frac{a+d}{det(A)} &= a+d \label{eq1}
 \end{align}
 \eqref{eq1} holds when either $a+d = 0$ or $det(A) = 1$. It is easy to observe that the correct answer among the given options is $\myvec{3 & 2 \\ 4 & 3}$ as its determinant is 1. 
-
-Eigen values for the inverse matrix can be calculated using the definition of eigen vector as:
 \begin{align}
-    \intertext{Inverse of the matrix is: } \myvec{3 & -2 \\ -4 & 3}
-    \intertext{Eigen vector definition: } det(xI - A^{-1}) &= 0 \\
-    \implies det\myvec{x-3 & 2 \\ 4 & x-3} &= 0 \\
-    \implies (x-3)^2 - 8 &= 0 \\
-    \implies (x-3) &= \pm \sqrt{8} 
-    \intertext{$\therefore$ The eigen values of Inverse matrix are}
-     x = 3+\sqrt{8} \text{ or } 3-\sqrt{8} 
+\text{Let } &P_A(x) = x^n + a_{n-1}x^{n-1} +...+ a_1x + a_0  
+\intertext{From Cayley hamilton theorem:}
+&A^n + a_{n-1}A^{n-1} +...+ a_1A + a_0 = 0
+\intertext{Multiplying with $A^{-n}$, we get:}
+&a_0(A^{-1})^n +...+a_{n-1}A^{-1}+I = 0
+\intertext{Dividing with $a_0$ (as $ a_0 \neq 0$), we get:} 
+&A^{-n} + \frac{1}{a_0}\brak{a_1A^{n-1} +...+1} = 0 \label{eq2}
+\end{align}
+From \eqref{eq2} we can write:
+\begin{align}
+    P_{A^{-1}}(x) = x^n + \frac{1}{a_0}\brak{a_1x^{n-1}+...+a_{n-1}x + 1} \nonumber
+\end{align}
+So, for the inverse matrix of $\myvec{a & b\\c & d}$, we get:
+\begin{align}
+      P_{A^{-1}}(x) = x^2 - \brak{\frac{a+d}{ad-bc}}x + \frac{1}{ad-bc} \label{eq3} 
+\end{align}
+From \eqref{eq3}, we can calculate the eigen values for the required matrix as :
+\begin{align}
+    x^2 - 6x + 1 = 0 \\
+    \implies x = 3+\sqrt{8} \text{ or } 3-\sqrt{8}
 \end{align}
 \end{document}
