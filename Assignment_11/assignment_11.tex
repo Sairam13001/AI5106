@@ -215,5 +215,16 @@ It can be observed that $P_A(x) - P_{A^{-1}}(x)$ will be constant when
     \implies tr(A^{-1}) &= tr(A) \\
     \implies \frac{a+d}{det(A)} &= a+d \label{eq1}
 \end{align}
-\eqref{eq1} holds when either $a+d = 0$ or $det(A) = 1$. It is easy to observe that the correct answer among the given options is $\myvec{3 & 2 \\ 4 & 3}$ as its determinant is 1.
+\eqref{eq1} holds when either $a+d = 0$ or $det(A) = 1$. It is easy to observe that the correct answer among the given options is $\myvec{3 & 2 \\ 4 & 3}$ as its determinant is 1. 
+
+Eigen values for the inverse matrix can be calculated using the definition of eigen vector as:
+\begin{align}
+    \intertext{Inverse of the matrix is: } \myvec{3 & -2 \\ -4 & 3}
+    \intertext{Eigen vector definition: } det(xI - A^{-1}) &= 0 \\
+    \implies det\myvec{x-3 & 2 \\ 4 & x-3} &= 0 \\
+    \implies (x-3)^2 - 8 &= 0 \\
+    \implies (x-3) &= \pm \sqrt{8} 
+    \intertext{$\therefore$ The eigen values of Inverse matrix are}
+     x = 3+\sqrt{8} \text{ or } 3-\sqrt{8} 
+\end{align}
 \end{document}
