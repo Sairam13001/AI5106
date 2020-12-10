@@ -196,45 +196,33 @@ Let matrix A be
       &\myvec{a & b \\ c & d} \\
     \implies P_A(x) &= det(xI - A) \\
     &= det\myvec{x - a & -b \\ -c & x - d} \\
-    &= x^2 - (a+d)x +(ad - bc) \\
-    &= x^2 - tr(A)x + det(A)
+    &= x^2 - (a+d)x +(ad - bc) 
 \end{align}
-We know that for a $2 \times 2$ matrix, the inverse is calculated as:
+From Cayley Hamilton theorem, we can write:
 \begin{align}
-    A^{-1} &= \frac{1}{ad-bc}\myvec{d & -b \\ -c & a} \\
-    \implies P_{A^{-1}}(x) &= det(xI - A^{-1})\\
-    &= x^2 - tr(A^{-1})x + det(A^{-1}) 
+    A^2 - (a+d)A + (ad-bc) &= 0 
 \end{align}
-So, $P_A(x) - P_{A^{-1}}(x)$ results in 
+Multiplying both sides with $A^{-2}$ :
 \begin{align}
- \brak{tr(A^{-1}) - tr(A)}x + det(A) - det(A^{-1}) 
+   (ad-bc)A^{-2} - (a+d)A^{-1} + I &= 0 
 \end{align}
-It can be observed that $P_A(x) - P_{A^{-1}}(x)$ will be constant when 
+Dividing with $(ad-bc)$ on both sides:
 \begin{align}
-    tr(A^{-1}) - tr(A) &= 0 \\
-    \implies tr(A^{-1}) &= tr(A) \\
-    \implies \frac{a+d}{det(A)} &= a+d \label{eq1}
+      (A^{-1})^{-2} - \brak{\frac{a+d}{ad-bc}}A^{-1} + \brak{\frac{1}{ad-bc}}I = 0 \nonumber  
 \end{align}
-\eqref{eq1} holds when either $a+d = 0$ or $det(A) = 1$. It is easy to observe that the correct answer among the given options is $\myvec{3 & 2 \\ 4 & 3}$ as its determinant is 1. 
+From above equation, we can write $P_{A^{-1}}(x)$ as:
 \begin{align}
-\text{Let } &P_A(x) = x^n + a_{n-1}x^{n-1} +...+ a_1x + a_0  
-\intertext{From Cayley hamilton theorem:}
-&A^n + a_{n-1}A^{n-1} +...+ a_1A + a_0 = 0
-\intertext{Multiplying with $A^{-n}$, we get:}
-&a_0(A^{-1})^n +...+a_{n-1}A^{-1}+I = 0
-\intertext{Dividing with $a_0$ (as $ a_0 \neq 0$), we get:} 
-&A^{-n} + \frac{1}{a_0}\brak{a_1A^{n-1} +...+1} = 0 \label{eq2}
+    x^2 - \brak{\frac{a+d}{ad-bc}}x + \brak{\frac{1}{ad-bc}} = 0 \label{eq1}
 \end{align}
-From \eqref{eq2} we can write $P_{A^{-1}}(x)$ as:
+So, $P_A(x) - P_{A^{-1}}(x)$ becomes:
 \begin{align}
-     x^n + \frac{1}{a_0}\brak{a_1x^{n-1}+...+a_{n-1}x + 1} \nonumber
+    \brak{\frac{a+d}{ad-bc} - (a+d)}x + \brak{(ad-bc) - \frac{1}{ad-bc}} \nonumber
 \end{align}
-So, for the inverse matrix of $\myvec{a & b\\c & d}$, we get:
+Hence it can be observed that $P_A(x) - P_{A^{-1}}(x)$ becomes a constant when either $a + d = 0$ or $ad - bc = 1$. 
+
+From the given options it is easy to see that option 3 is the correct answer as its determinant $(ad-bc) = 1$.
 \begin{align}
-      P_{A^{-1}}(x) = x^2 - \brak{\frac{a+d}{ad-bc}}x + \frac{1}{ad-bc} \label{eq3} 
-\end{align}
-From \eqref{eq3}, we can calculate the eigen values for the required matrix as :
-\begin{align}
+   \intertext{From \eqref{eq1}, eigenvalues of $A^{-1}$ can be calculated as}
     x^2 - 6x + 1 = 0 \\
     \implies x = 3+\sqrt{8} \text{ or } 3-\sqrt{8}
 \end{align}
