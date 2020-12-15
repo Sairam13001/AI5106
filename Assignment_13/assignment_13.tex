@@ -1,0 +1,233 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+%
+\usepackage{setspace}
+\usepackage{gensymb}
+%\doublespacing
+\singlespacing
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+\usepackage[cmex10]{amsmath}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+%\usepackage{iithtlc}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+%\usepackage{stmaryrd}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+%\usepackage{enumerate}
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+%\lstset{
+%language=tex,
+%frame=single, 
+%breaklines=true
+%}
+
+\begin{document}
+%
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+%\newtheorem{thm}{Theorem}[section] 
+%\newtheorem{defn}[thm]{Definition}
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\ensuremath{\left\lVert#1\right\rVert}}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{\ensuremath{E\left[ #1 \right]}}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+%\numberwithin{equation}{section}
+\numberwithin{equation}{subsection}
+%\numberwithin{problem}{section}
+%\numberwithin{definition}{section}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+\renewcommand{\thefigure}{\theproblem}
+%\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
+%\counterwithin{equation}{enumi}
+%\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 12}
+\author{Sairam V C Rebbapragada}
+\maketitle
+\newpage
+%\tableofcontents
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\begin{abstract}
+This document uses the concepts of matrix trace, eigen values, minimal polynomial etc in solving a problem. 
+\end{abstract}
+
+Download latex-tikz codes from 
+%
+\begin{lstlisting}
+https://github.com/Sairam13001/AI5106/blob/main/Assignment_12/assignment_12.tex
+\end{lstlisting}
+
+\section{Problem}
+Let $M_n(\mathbb{R})$ be the ring of $n \times n$ matrices over $\mathbb{R}$. Which of the following are true for every $n\geq 2$?
+\begin{enumerate}
+    \item there exists matrices A, B $\in$ $M_n(\mathbb{R})$ such that $AB - BA = I_n$, where $I_n$ denotes the identity $n \times n$ matrix.
+    \item if A, B $\in$ $M_n(\mathbb{R})$ and $AB = BA$, then A is diagonalizable over $\mathbb{R}$ if and only if B is diagonalizable over $\mathbb{R}$.
+    \item if A, B $\in$ $M_n(\mathbb{R})$, then $AB$ and $BA$ have same minimal polynomial.
+    \item if A, B $\in$ $M_n(\mathbb{R})$, then $AB$ and $BA$ have same eigenvalues in $\mathbb{R}$.
+\end{enumerate}
+\section{Explanation}
+If A, B are two matrices of same size and k is any scalar, then we know that 
+\begin{align}
+    trace(A+B) &= trace(A) + trace(B)\\
+    trace(kA) &= k \times trace(A) \\
+    trace(AB) &= trace(BA)
+\end{align}
+\section{Solution}
+\begin{enumerate}
+    \item Consider option 1 is true. It means that there exists matrices A, B such that $AB - BA = I_n$.
+    \begin{align}
+        \implies tr(AB - BA) &= tr(I_n) \\
+        \implies tr(AB) - tr(BA) &= n \\
+        \implies 0 &= n
+    \end{align}
+    But it is given that $n \geq 2$. This contradicts our assumption. Hence, option 1 is FALSE. 
+    
+    \item   Let A be a zero matrix of order n and B be any non-diagonalizable matrix of order n. We know that a zero matrix is always diagonalizable. 
+    \begin{align}
+        \intertext{As, A = $0_{ n\times n }$}
+        AB = 0 = BA 
+    \end{align}
+    We can observe here that when $AB = BA$, matrix A is diagonalizable even though matrix B is not diagonalizable. Hence, option 2 is FALSE.
+    
+    \item The minimal polynomial m(x), of a matrix A, is the polynomial P of minimum degree such that P(A) = 0.
+    \begin{align}
+        \text{Let } A &= \myvec{0 & 1 \\ 0 & 0} \text{ and } B = \myvec{0 & 0 \\ 0 & 1} \\
+        \implies AB &= \myvec{0 & 0 \\ 0 & 1} \text{ and } BA = \myvec{0 & 0 \\ 0 & 0}
+    \end{align}
+    We can observe here that 
+    \begin{align}
+        m_{BA}(x) &= x \text{ while } \\
+        m_{AB}(x) &= x^2
+    \end{align}
+    As minimal polynomial of AB and BA are not same, option 3 is also FALSE. 
+    
+    \item Let $\lambda$ be an eigen value of AB, it implies that there is some $x \neq 0$ such that,
+    \begin{align}
+        ABx = \lambda x \label{eq1}
+    \end{align}
+    Let y = Bx. Then $y \neq 0$. Otherwise we would get from \eqref{eq1} that $\lambda = 0$ or $x = 0$. Now we have,
+    \begin{align}
+        BAy &= BABx = B(ABx)  \nonumber \\
+         = B(\lambda x) &= \lambda Bx = \lambda y \nonumber
+    \end{align}
+    It follows that $\lambda$ is an eigen value of BA. Hence, option 4 is TRUE.
+\end{enumerate}
+
+\end{document}
